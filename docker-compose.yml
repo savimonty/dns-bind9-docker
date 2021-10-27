@@ -1,0 +1,12 @@
+version: "2"
+services:
+  dns:
+    container_name: dns
+    image: ubuntu/bind9:9.16-21.10_edge
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    environment:
+      - TZ=UTC
+    volumes:
+       - ./named.conf.options:/etc/bind/named.conf.options
